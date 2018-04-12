@@ -5,7 +5,8 @@ pipeline {
     }
     stages {
         stage("checkout") {
-            steps {
+            steps {                
+                sh "mkdir -p project && cd project"
                 git 'https://github.com/garyli94110/hello-jenkins.git'
             }
         }
