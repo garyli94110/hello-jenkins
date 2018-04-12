@@ -10,6 +10,11 @@ pipeline {
                 git 'https://github.com/garyli94110/hello-jenkins.git'
             }
         }
+        stage("findVersion") {
+            steps {
+                echo "parsing versions"
+            }
+        }
         stage("build") {
             steps {
                 sh "mvn clean compile"
