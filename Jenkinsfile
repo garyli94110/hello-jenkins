@@ -8,7 +8,18 @@ pipeline {
         }
         stage("build") {
             steps {
-                echo "mvn clean compile"
+                sh "mvn clean compile"
+            }
+        }
+        stage("test") {
+            steps {
+                sh "mvn test"
+                junit "**/target/surefire-reports/TEST-*.xml
+            }
+        }
+        stage("package") {
+            steps {
+                sh "mvn package"   
             }
         }
 
